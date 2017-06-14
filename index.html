@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/Pager.css" />
+		<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.pager.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+			$("#pager").pager({ pagenumber: 1, pagecount: 10, buttonClickCallback: PageClick });
+			$("#result").html("Clicked Page " + 1);
+			$('.page-cur').html('1');
+        });
+		PageClick = function(pageclickednumber) {
+			console.log(pageclickednumber)
+			$("#pager").pager({ pagenumber: pageclickednumber, pagecount: 10, buttonClickCallback: PageClick });
+			$("#result").html("Clicked Page " + pageclickednumber);
+			$('.page-cur').html(pageclickednumber);
+		}
+       
+    </script>
+    <h1 id="result"></h1>
+	<div id="pager" ></div>
+		
+
+	</body>
+	<div>
+		<span class="page-cur"></span>
+		<span class="total-count"></span>
+	</div>
+	
+</html>
